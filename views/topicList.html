@@ -1,0 +1,41 @@
+
+{{template "header"}}
+<title>文章列表 - beego博客</title>
+</head>
+<body>
+<div class="container">
+{{template "navbar" .}}
+</div>
+<div class="container"  style="width:1000px">
+    <h1>文章列表</h1>
+    <a class="btn btn-default" href="/topic/add">添加文章</a><br/><br/>
+
+    <table class="table table-striped">
+        <thead>
+            <td class="info">id</td>
+            <td class="info">title</td>
+            <td class="info">content</td>
+            <td class="info">created</td>
+            <td class="info">updated</td>
+            <td class="info">operate</td>
+        </thead>
+
+        {{range .topics}}
+        <tr>
+            <td class="active">{{.Id}}</td>
+            <td class="success">{{.Title}}</td>
+            <td class="warning">{{.Content}}</td>
+            <td class="danger">{{.Created}}</td>
+            <td class="success">{{.Updated}}</td>
+            <td class="warning"><a class="btn btn-default" href="/topic/view?id={{.Id}}">修改</a>|
+                <a class="btn btn-default" href="/topic/delete?id={{.Id}}">删除</a></td>
+        </tr>
+        {{end}}
+    </table>
+
+</div>
+
+
+
+</body>
+</html>

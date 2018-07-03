@@ -1,0 +1,24 @@
+
+{{template "header"}}
+    <title>首页 - beego博客</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        {{template "navbar" .}}
+    </div>
+
+    <div class="container">
+        {{range .topics}}
+        <div class="page-header">
+            <h1><a href="/topic/view?id={{.Id}}">{{.Title}}</a></h1>
+            <h6 class="text-muted">文章发表于 {{.Created}} ,共有 100 次浏览， 200 个评论</h6>
+            <p>
+                {{.Content}}
+            </p>
+        </div>
+        {{end}}
+    </div>
+</header>
+</body>
+</html>
